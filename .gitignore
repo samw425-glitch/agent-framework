@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.log
+
+# Virtual environment
+venv/
+env/
+ENV/
+*.env
+
+# Config / Secrets
+config/*.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Uvicorn / FastAPI
+*.pid
+*.sock
+
+# Cache / build
+*.egg-info/
+dist/
+build/
