@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  contentgen:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: contentgen
+    ports:
+      - "8000:8000"
+    depends_on:
+      - upload
+    restart: unless-stopped
+
+  seo:
+    build:
+      context: ./services/seo
+      dockerfile: Dockerfile
+    container_name: seo
+    restart: unless-stopped
+
+  utm:
+    build:
+      context: ./services/utm
+      dockerfile: Dockerfile
+    container_name: utm
+    restart: unless-stopped
+
+  indexing:
+    build:
+      context: ./services/indexing
+      dockerfile: Dockerfile
+    container_name: indexing
+    restart: unless-stopped
+
+  backlinking:
+    build:
+      context: ./services/backlinking
+      dockerfile: Dockerfile
+    container_name: backlinking
+    restart: unless-stopped
+
+  analytics:
+    build:
+      context: ./services/analytics
+      dockerfile: Dockerfile
+    container_name: analytics
+    restart: unless-stopped
+
+  upload:
+    build:
+      context: ./services/upload
+      dockerfile: Dockerfile
+    container_name: upload
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+
+  website:
+    build:
+      context: ./services/website
+      dockerfile: Dockerfile
+    container_name: website
+    ports:
+      - "8080:80"
+    restart: unless-stopped
